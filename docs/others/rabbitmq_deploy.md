@@ -19,7 +19,13 @@ RabbitMQ的官网提供了非常详细的 [安装文档](https://www.rabbitmq.co
 如果安装了 [docker server](https://www.docker.com/)，那么通过docker安装是比较方便的，只需要一行代码即可启动一个RabbitMQ实例:
 
 ```bash
-docker run -d --restart always --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+docker run --name rabbit -d -p 8003:5672 -p 8004:15672 rabbitmq:management
+
+docker run -itd --name mongo -p 8010:27017 mongo:latest
+docker exec -it mongo mongo admin
+db.createUser({ user:'evankt',pwd:'sh7758',roles:[ { role:'userAdminAnyDatabase', db: 'admin'},"readWriteAnyDatabase"]});
+evankt,sh7758
+docker run --name aio -itd -p 8011:80 -v /demo/aio:/demo python:3.8
 ```
 
 > 说明：

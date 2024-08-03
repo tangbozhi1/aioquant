@@ -1,7 +1,6 @@
 ## 交易
 
-通过交易模块(trade)，可以在任意交易平台发起交易，包括下单(create_order)、撤单(revoke_order)、查询订单状态(order status)、
-查询未完全成交订单(get_open_order_ids)等功能；
+通过交易模块(trade)，可以在任意交易平台发起交易，包括下单(create_order)、撤单(revoke_order)、查询未完全成交订单(get_open_order_ids)等功能；
 
 策略完成下单之后，底层框架将定时或实时将最新的订单状态更新通过策略注册的回调函数传递给策略，策略能够在第一时间感知到订单状态更新数据；
 
@@ -130,7 +129,7 @@ async def create_order(self, action, price, quantity, *args, **kwargs):
     """
 ``` 
 > 注意:
-- 入参 `action` 可以引入使用 `from quant.order import ORDER_ACTION_BUY, ORDER_ACTION_SELL`
+- 入参 `action` 可以引入使用 `from aioquant.order import ORDER_ACTION_BUY, ORDER_ACTION_SELL`
 - 入参 `price` 最好是字符串格式，因为这样能保持原始精度，否则在数据传输过程中可能损失精度
 - 入参 `quantity` 最好是字符串格式，理由和 `price` 一样；另外，当为合约委托单的时候，`quantity` 有正负之分，正代表多仓，负代表空仓
 - 返回 `(order_id, error)` 如果成功，`order_id` 为创建的委托单号，`error` 为None；如果失败，`order_id` 为None，`error` 为 `Error` 对象携带的错误信息
@@ -245,7 +244,7 @@ o.utime  # 交易所订单更新时间
 
 ### 3. 持仓模块
 
-所有持仓相关的对象在框架的 `quant.position` 模块下，`Trade` 模块在推送持仓信息回调的时候，携带的 `position` 参数即此模块。
+所有持仓相关的对象在框架的 `aioquant.position` 模块下，`Trade` 模块在推送持仓信息回调的时候，携带的 `position` 参数即此模块。
 
 #### 3.1 持仓对象
 

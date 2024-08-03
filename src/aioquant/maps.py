@@ -1,0 +1,52 @@
+from aioquant.platform.binance import BinanceRestAPI as Binance
+from aioquant.platform.binance_delivery import BinanceRestAPI as BinanceDelivery
+from aioquant.platform.binance_futures import BinanceRestAPI as BinanceFutures
+from aioquant.platform.okex import OKExRestAPI as Okx
+from aioquant.platform.ftx import FtxRestAPI as Ftx
+from aioquant.const import BINANCE_FUTURES,BINANCE_DELIVERY,BINANCE,OKX,FTX
+# Maps string name to class name for use with config
+EXCHANGE_MAP = {
+    # ASCENDEX: AscendEX,
+    # ASCENDEX_FUTURES: AscendEXFutures,
+    # BEQUANT: Bequant,
+    BINANCE_DELIVERY: BinanceDelivery,
+    BINANCE_FUTURES: BinanceFutures,
+    # BINANCE_US: BinanceUS,
+    BINANCE: Binance,
+    # FMFW_str: FMFW,
+    # BITDOTCOM: BitDotCom,
+    # BITFINEX: Bitfinex,
+    # BITFLYER: Bitflyer,
+    # BITGET: Bitget,
+    # BITHUMB: Bithumb,
+    # BITMEX: Bitmex,
+    # BITSTAMP: Bitstamp,
+    # BITTREX: Bittrex,
+    # BLOCKCHAIN: Blockchain,
+    # BYBIT: Bybit,
+    # COINBASE: Coinbase,
+    # CRYPTODOTCOM: CryptoDotCom,
+    # DERIBIT: Deribit,
+    # DELTA: Delta,
+    # DYDX: dYdX,
+    # EXX_str: EXX,
+    FTX: Ftx,
+    # FTX_US: FTXUS,
+    # FTX_TR: FTXTR,
+    # GATEIO: Gateio,
+    # GEMINI: Gemini,
+    # HITBTC: HitBTC,
+    # HUOBI_DM: HuobiDM,
+    # HUOBI_SWAP: HuobiSwap,
+    # HUOBI: Huobi,
+    # INDEPENDENT_RESERVE: IndependentReserve,
+    # KRAKEN_FUTURES: KrakenFutures,
+    # KRAKEN: Kraken,
+    # KUCOIN: KuCoin,
+    # OKCOIN: OKCoin,
+    OKX: Okx,
+    # PHEMEX: Phemex,
+    # POLONIEX: Poloniex,
+    # PROBIT: Probit,
+    # UPBIT: Upbit,
+}

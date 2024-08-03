@@ -9,7 +9,7 @@
 > 使用  
 
 ```python
-    from quant.utils.decorator import async_method_locker
+    from aioquant.utils.decorator import async_method_locker
     
     @async_method_locker("unique_locker_name")
     async def func_foo():
@@ -29,4 +29,34 @@ def async_method_locker(name, wait=True):
 > 说明  
 - `async_method_locker` 为装饰器，需要装饰到 `async` 异步函数上；
 - 装饰器需要传入一个参数 `name`，作为此函数的锁名；
-- 参数 `wait` 可选，如果被锁是否等待，True等待执行完成再返回，False不等待直接返回
+- 参数 `wait` 可选，如果被锁是否等待，True等待执行完成再返回（等待执行,不漏数据），False不等待直接返回（跳过执行，放弃更新的数据）
+
+"""
+from aioquant.tasks import LoopRunTask, SingleTask
+from aioquant.utils.decorator import async_method_locker
+
+
+@async_method_locker("test1", True)
+async def d(x):
+    print("test1 True",x）
+    
+@async_method_locker("test2", False)
+async def k(x):
+    print("test2 False",x)
+    
+for i in range(10):    
+    SingleTask.run(d,i)
+    SingleTask.run(k,i) 
+
+test1 True 0
+test2 False 0
+test1 True 1
+test1 True 2
+test1 True 3
+test1 True 4
+test1 True 5
+test1 True 6
+test1 True 7
+test1 True 8
+test1 True 9
+"""

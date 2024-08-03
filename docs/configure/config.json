@@ -3,21 +3,29 @@
         "interval": 3
     },
     "LOG": {
-        "console": false,
-        "level": "DEBUG",
-        "path": "/var/log/servers/aioquant",
+        "console": true,
+        "level": "INFO",
+        "path": "/demo",
         "name": "quant.log",
         "clear": true,
         "backup_count": 5
     },
     "RABBITMQ": {
-        "host": "127.0.0.1",
-        "port": 5672,
-        "username": "test",
-        "password": "123456"
+        "host": "172.17.11.130",
+        "port": 8008,
+        "username": "evankt",
+        "password": "sh7758"
     },
-    "PROXY": "http://127.0.0.1:1087",
-
+	"ACCOUNTS": [
+        {
+            "platform": "binance",
+            "account": "BtcKol",
+            "access_key": "4ydadAunjVG0D0HVpozR6ba0kaF4mEnO2HrnKmBi6YHXMXKSe1Z88JHpM6XOSrrT",
+            "secret_key": "FswSlRawxcCjcXwxO9O3fCzzJWKNG8NP7J1poL1PAUlZ94UsYwT8q9mHvhK77nXg"
+        }
+    ],
+	"symbol": "BTC/USDT",
+    "PROXY": "",
     "name": "my test name",
     "abc": 123456
 }
